@@ -3,7 +3,7 @@ view = {
     meuContadorVisual = nil
 }
 
-function view:desenhar(controlador)
+function view:draw(controlador)
     self.controlador = controlador
    
     controlador:inicializar(self)

@@ -7,4 +7,6 @@
 -- Your code here
 local view = require('view')
 local controller = require('controller')
-view:desenhar(controller)
+local rota = require('routes')
+rota:navigate(umRota)
+--controller:draw(view)
