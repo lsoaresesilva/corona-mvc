@@ -1,29 +1,20 @@
 local meuContador = require("model")
+local view = require('view')
+
 controller = {
     view = nil,
     model = meuContador
 }
 
-function controller:draw(view)
-    self:inicializar(view)
-    view:draw(self)
-end
-
-function controller:exemploRota()
-    print("rota")
-end
-
-function controller:inicializar(view)
+function controller:draw()
     self.view = view
-    print("view")
-    print(self.view)
-    return self
+    self.view:draw(self)
 end
 
-function controller.aumentarContagem(event)
+function controller:aumentarContagem(event)
     if event.phase == "began" then
         meuContador:aumentar()
-        controller.view:atualizarContador()
+        self.view:atualizarContador()
     end
 end
 

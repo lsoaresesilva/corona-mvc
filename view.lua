@@ -5,15 +5,18 @@ view = {
 
 function view:draw(controlador)
     self.controlador = controlador
-   
-    controlador:inicializar(self)
     self:desenharBotao()
     self:desenharContador()
 end
 
 function view:desenharBotao()
     local meuRetangulo = display.newRect(100,100,50,50)
-    meuRetangulo:addEventListener("touch", self.controlador.aumentarContagem)
+    local _self = self
+    function meuRetangulo:touch(event)
+        _self.controlador:aumentarContagem(event)
+    end
+
+    meuRetangulo:addEventListener("touch")
 end
 
 function view:desenharContador()
